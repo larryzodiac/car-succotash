@@ -1,0 +1,12 @@
+# Refer for explanation to following link:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*"
+      run: npm run prettier -- --ignore-unknown --write {staged_files} && git add {staged_files}
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npm run eslint -- {staged_files}
