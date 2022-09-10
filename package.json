@@ -1,0 +1,19 @@
+{
+  "name": "car-succotash",
+  "version": "1.0.0",
+  "description": "API for Car Rental Data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larryzodiac/car-succotash.git"
+  },
+  "author": "Evan Mac Hale",
+  "license": "MIT"
+}
