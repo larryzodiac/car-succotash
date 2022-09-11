@@ -10,3 +10,6 @@ pre-commit:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
       run: npm run eslint -- {staged_files}
+    jest:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: npm run test -- --runInBand --passWithNoTests {staged_files}

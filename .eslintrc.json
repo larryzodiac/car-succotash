@@ -13,11 +13,14 @@
     "sourceType": "module"
   },
   "extends": ["plugin:unicorn/recommended", "prettier"],
+  "rules": {
+    "unicorn/prefer-module": "off"
+  },
   "overrides": [
     {
       "files": ["**/__tests__/*.spec.js"],
       "plugins": ["no-only-tests"],
-      "extends": ["plugin:jest/recommended", "plugin:testing-library/vue"]
+      "extends": ["plugin:jest/recommended"]
     }
   ],
   "settings": {
