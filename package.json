@@ -3,12 +3,28 @@
   "version": "1.0.0",
   "description": "API for Car Rental Data",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "concurrently -c 'yellow,green' \"npm:lint:js\" \"npm:lint:format\"",
+    "lint:js": "npm run eslint -- . --ext .vue,.js,.jsx,.cjs,.mjs --fix",
+    "lint:format": "npm run prettier -- \"**/*\" -u --write",
+    "eslint": "eslint --ignore-path .gitignore",
+    "prettier": "prettier --ignore-path .gitignore"
   },
   "dependencies": {
     "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-no-only-tests": "^3.0.0",
+    "eslint-plugin-testing-library": "^5.6.3",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "prettier": "^2.7.1"
   },
   "repository": {
     "type": "git",
