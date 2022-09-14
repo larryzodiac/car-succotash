@@ -75,8 +75,8 @@ const VehVendorAvails = [
   },
 ];
 
-describe("removeDuplicates", () => {
-  test("It should remove duplicate vehicles", async () => {
+describe("getCheapestByFuelType", () => {
+  test("It should get the cheapest vehicle for each fuel type", async () => {
     const result = {
       VehVendorAvails,
       getCheapestByFuelType,
