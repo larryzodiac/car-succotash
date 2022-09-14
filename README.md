@@ -2,12 +2,17 @@
 
 A containerised API helper library for car rental data that can be re-used &amp; shared across multiple teams.
 
+## Time Constraints
+
+1. Mock Database.
+2. Deployment.
+3. Ignore TypeScript.
+
 ## Design Principles
 
-1. Minimal Setup(Limited Time).
-2. Easy to use.
-3. Re-usable.
-4. Ignore TypeScript(Limited Time).
+- Quality Code.
+- Re-usable.
+- Easy to use.
 
 ## Research
 
