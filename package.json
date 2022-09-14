@@ -4,7 +4,8 @@
   "description": "API for Car Rental Data",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "dev": "nodemon src/index.js",
+    "preview": "node src/index.js",
     "test": "jest",
     "lint": "concurrently -c 'yellow,green' \"npm:lint:js\" \"npm:lint:format\"",
     "lint:js": "npm run eslint -- . --ext .js,.jsx,.cjs,.mjs --fix",
@@ -24,6 +25,7 @@
     "eslint-plugin-testing-library": "^5.6.3",
     "eslint-plugin-unicorn": "^43.0.2",
     "jest": "^29.0.3",
+    "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "supertest": "^6.2.4"
   },
