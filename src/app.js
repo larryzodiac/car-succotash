@@ -1,26 +1,21 @@
-const express = require("express");
 const fetchCarData = require("./api/utils/fetchCarData");
 const mapVehicleData = require("./api/utils/mapVehicleData");
 const helper = require("./api/helper");
-
+const express = require("express");
 const app = express();
 
 /**
- * Sort against the given `VehAvailRSCore`,
- * returning a new `helper`.
- *
- * @param {Boolean} filterByCdar
- * @param {Boolean} removeDuplicates
- * @param {String} sortByCorporate
- * @param {Boolean} sortByPrice
- * @param {String} sortGroupsByPrice
+ * API Route
+ * @note query params
+ * @param removeDuplicates
+ * @param {String} getCheapestByFuelType e.g electric
+ * @param getByCodeCdar
+ * @param getByCorporateVendor
+ * @param {String} getPriceDescByVendor e.g avis
+ * @returns {array} of vehicles objects
  */
 app.get("/api/v1", async ({ query }, response) => {
-  // Fetch the data
-  /**
-   * Make a request to the data endpoint.
-   * This would normally come from a db instead.
-   */
+  // This would normally come from a db instead.
   const {
     VehAvailRSCore: { VehRentalCore, VehVendorAvails },
   } = await fetchCarData();
@@ -37,12 +32,15 @@ app.get("/api/v1", async ({ query }, response) => {
    */
   for (const method in query) {
     if (query.hasOwnProperty(method)) {
-      // console.log(method + " -> " + query[method]);
-      // await data[method]()
+      console.log(method + " -> " + query[method]);
+      if (query[method] !== undefined) {
+        const argument = query[method];
+        await data[method](argument);
+      } else {
+        await data[method]();
+      }
     }
   }
-
-  await data.getByCorporateVendor();
 
   response.status(200).send(data.VehVendorAvails);
 });
