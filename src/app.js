@@ -42,16 +42,7 @@ app.get("/api/v1", async ({ query }, response) => {
     }
   }
 
-  // TODO: Write a test for this
-
-  // await data.getByCodeCdar().getCheapestByFuelType().removeDuplicates();
-  // await data.getByCodeCdar().removeDuplicates().getCheapestByFuelType();
-
-  // await data.removeDuplicates().getByCodeCdar().getCheapestByFuelType();
-  // await data.removeDuplicates().getCheapestByFuelType().getByCodeCdar();
-
-  // await data.getCheapestByFuelType().removeDuplicates().getByCodeCdar();
-  // await data.getCheapestByFuelType().getByCodeCdar().removeDuplicates();
+  await data.getByCorporateVendor();
 
   response.status(200).send(data.VehVendorAvails);
 });
