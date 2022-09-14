@@ -14,7 +14,6 @@ module.exports = function () {
           value.Vehicle.VehMakeModel["@Name"]
       );
       // If the vehicle does not exist already, it passes
-      // i.e if the vehicle is found at
       const vehicleDoesNotExist = firstMatchingIndex === index;
       return vehicleDoesNotExist;
     }

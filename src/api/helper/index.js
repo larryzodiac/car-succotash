@@ -1,4 +1,5 @@
 const removeDuplicates = require("./removeDuplicates");
+const getCheapestByFuelType = require("./getCheapestByFuelType");
 
 /**
  * Sort against the given `VehAvailRSCore`,
@@ -21,11 +22,12 @@ function Helper(VehVendorAvails) {
   // Remove any duplicate Vehicle Models from the list
   this.removeDuplicates = removeDuplicates;
 
-  // Display cheapest of each car type
-  this.getCheapestTypes = function () {
-    console.log("sortByPrice called!");
-    return this;
-  };
+  /**
+   * Get cheapest of each car type
+   * Fuel Type or Transmission Type, etc?
+   * Assuming Fuel Type e.g petrol, diesel, electric
+   */
+  this.getCheapestByFuelType = getCheapestByFuelType;
 
   // Allow to pass filter for cars with code “CDAR”
   this.filterByCdar = function () {

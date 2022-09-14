@@ -34,14 +34,13 @@ const VehVendorAvails = [
 ];
 
 describe("removeDuplicates", () => {
-  const testObject = {
-    VehVendorAvails,
-    removeDuplicates,
-  };
-
   test("It should remove duplicate vehicles", async () => {
-    await testObject.removeDuplicates();
-    expect(testObject.VehVendorAvails).toEqual([
+    const result = {
+      VehVendorAvails,
+      removeDuplicates,
+    };
+    await result.removeDuplicates();
+    expect(result.VehVendorAvails).toEqual([
       {
         "@Status": "Available",
         Vehicle: {
