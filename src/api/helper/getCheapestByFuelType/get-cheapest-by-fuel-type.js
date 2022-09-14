@@ -10,8 +10,8 @@ module.exports = function () {
   const cheapestTypesByFuel = [];
 
   for (const type of ["Petrol", "Diesel", "Electric"]) {
-    const cheapestType = this.VehVendorAvails.filter(({ Vehicle }) => {
-      return Vehicle["@FuelType"] === type;
+    const cheapestType = this.VehVendorAvails.filter((availability) => {
+      return availability.Vehicle["@FuelType"] === type;
     }).sort((a, b) => {
       return (
         a.TotalCharge["@RateTotalAmount"] - b.TotalCharge["@RateTotalAmount"]
@@ -19,11 +19,12 @@ module.exports = function () {
     });
 
     // Add the cheapest of the current type
-    cheapestTypesByFuel.push(cheapestType[0]);
+    if (cheapestType.length > 0) cheapestTypesByFuel.push(cheapestType[0]);
   }
 
   // Set the new available vehicles
-  this.VehVendorAvails = cheapestTypesByFuel;
+  this.VehVendorAvails =
+    cheapestTypesByFuel.length > 0 ? cheapestTypesByFuel : [];
 
   // Required to chain functions
   return this;

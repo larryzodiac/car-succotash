@@ -1,5 +1,6 @@
 const removeDuplicates = require("./removeDuplicates");
 const getCheapestByFuelType = require("./getCheapestByFuelType");
+const getByCodeCdar = require("./getByCodeCdar");
 
 /**
  * Sort against the given `VehAvailRSCore`,
@@ -29,11 +30,8 @@ function Helper(VehVendorAvails) {
    */
   this.getCheapestByFuelType = getCheapestByFuelType;
 
-  // Allow to pass filter for cars with code “CDAR”
-  this.getByCodeCdar = function () {
-    console.log("filterByCdar called!");
-    return this;
-  };
+  // Get vehicles with code CDAR
+  this.getByCodeCdar = getByCodeCdar;
 
   // Sort by corporate (Corporate Cars are AVIS and ALAMO )
   this.getByCorporateVendor = function () {
