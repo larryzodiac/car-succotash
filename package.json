@@ -1,11 +1,11 @@
 {
-  "name": "car-succotash",
+  "name": "car-succotash-helper",
   "version": "1.0.0",
   "description": "API for Car Rental Data",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "build": "esbuild src/server.js --platform=node --bundle --minify --outfile=dist/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "esbuild src/index.js --platform=node --bundle --minify --outfile=dist/index.js",
     "preview": "node src/index.js NODE_ENV=production",
     "test": "jest",
     "lint": "concurrently -c 'yellow,green' \"npm:lint:js\" \"npm:lint:format\"",
