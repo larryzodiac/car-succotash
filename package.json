@@ -1,11 +1,12 @@
 {
-  "name": "car-succotash",
+  "name": "car-succotash-helper",
   "version": "1.0.0",
   "description": "API for Car Rental Data",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "preview": "node src/index.js",
+    "build": "esbuild src/index.js --platform=node --bundle --minify --outfile=dist/index.js",
+    "preview": "node src/index.js NODE_ENV=production",
     "test": "jest",
     "lint": "concurrently -c 'yellow,green' \"npm:lint:js\" \"npm:lint:format\"",
     "lint:js": "npm run eslint -- . --ext .js,.jsx,.cjs,.mjs --fix",
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.4.0",
+    "esbuild": "^0.15.7",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.0.4",

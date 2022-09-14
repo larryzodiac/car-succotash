@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  nginx:
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - express
+  express:
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: express
+    container_name: express
+    ports:
+      - "8080:8080"
