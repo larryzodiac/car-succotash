@@ -42,7 +42,7 @@ app.get("/api/v1", async ({ query }, response) => {
     }
   }
 
-  await data.removeDuplicates();
+  await data.removeDuplicates().getCheapestByFuelType();
 
   response.status(200).send(data.VehVendorAvails);
 });
