@@ -1,6 +1,7 @@
 /**
- * Filter VehVendorAvails array of vehicle objects
- * Finding unique vehicles by vehicle make/model.
+ * Filter VehVendorAvails array of vehicle objects by fuel type
+ * sorting types by cheapest
+ * pushing the cheapest of each type to a new array.
  */
 module.exports = function () {
   console.log("getCheapestTypesByFuel called!");
