@@ -30,19 +30,19 @@ function Helper(VehVendorAvails) {
   this.getCheapestByFuelType = getCheapestByFuelType;
 
   // Allow to pass filter for cars with code “CDAR”
-  this.filterByCdar = function () {
+  this.getByCodeCdar = function () {
     console.log("filterByCdar called!");
     return this;
   };
 
   // Sort by corporate (Corporate Cars are AVIS and ALAMO )
-  this.sortByCorporate = function () {
+  this.getByCorporateVendor = function () {
     console.log("sortByCorporate called!");
     return this;
   };
 
   // Within each group sort low-to-high price
-  this.sortGroupsByPrice = function () {
+  this.sortVendorVehiclesByPrice = function () {
     console.log("sortGroupsByPrice called!");
     return this;
   };
