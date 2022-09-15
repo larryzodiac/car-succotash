@@ -72,7 +72,7 @@ Make a conscious decision to ignore the following due to the time frame:
 
 ## Persona
 
-![Persona](http://url/to/img.png)
+![Persona](https://github.com/larryzodiac/car-succotash/blob/main/report/persona.png)
 
 ### How might we
 
@@ -84,7 +84,7 @@ Make a conscious decision to ignore the following due to the time frame:
 
 1. NPM Package:
 
-```
+```javascript
 import Helper from 'car-succotash'
 
 const { data } = axios.get(<DATA_ENDPOINT>)
@@ -99,14 +99,14 @@ const newData = new Helper(data)
 
 2. Containerised Node/Groovy API w/ params
 
-```
+```javascript
 // 2.a
 const { data } = axios.get(<DATA_ENDPOINT>)
 
 const newData = axios.post('<API_ENDPOINT>/helper?cheapest=true&duplicates=false', { data })
 ```
 
-```
+```javascript
 // Alternatively 2.b
 const { data } = axios.get('<API_ENDPOINT>/helper?cheapest=true&duplicates=false')
 ```
