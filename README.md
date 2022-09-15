@@ -50,6 +50,11 @@ Play around with the following query params:
  */
 ```
 
+```javascript
+// e.g
+http://localhost/api/v1?getPriceDescByVendor=AVIS&removeDuplicates
+```
+
 # Report
 
 Detailing user research & outcomes.
@@ -113,7 +118,13 @@ const { data } = axios.get('<API_ENDPOINT>/helper?cheapest=true&duplicates=false
 
 # Assessment
 
-For this assessment, option 2.b was selected for the following reasons:
+See [GitHub Project](https://github.com/users/larryzodiac/projects/1) for broken down tasks.
+
+For this assessment, option 2.b was selected. This includes an Express API served through an Nginx reverse proxy.
+
+The Express API leverages a `Helper` library to perform operations on the vehicle data. 
+
+This approach was chosen for the following reasons:
 
 - A service can be queried by _both_ FE & BE.
 - A service can be reused via terraform modules(w/Helm) & setup in multiple environments.
@@ -125,7 +136,32 @@ For this assessment, option 2.b was selected for the following reasons:
 - A Terraform module would point to said Helm chart which may be used to install `car-succotash`.
 - The Terraform module could be shared and re-used between teams/products.
 
-See [GitHub Project](https://github.com/users/larryzodiac/projects/1) for broken down tasks.
+### How might this work on a FE
+```javascript
+import axios from 'axios';
+import omitBy from 'lodash/omitBy';
+import isNil from 'lodash/isNil';
+
+export function getVehciles({
+  getCheapestByFuelType,
+  getByCodeCdar,
+  getByCorporateVendor,
+  getPriceDescByVendor,
+  removeDuplicates
+  dateTo,
+} = {}) {
+  const filteredParameters = omitBy({
+    getCheapestByFuelType,
+    getByCodeCdar,
+    getByCorporateVendor,
+    getPriceDescByVendor,
+    removeDuplicates
+  }, isNil);
+  const queryParameters = new URLSearchParams(filteredParameters);
+  
+  return axios.get(`${carEndpoint}/api/v1`, { params: queryParameters });
+}
+```
 
 ### Checklist
 
