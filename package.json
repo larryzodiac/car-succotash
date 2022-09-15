@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "build": "esbuild src/index.js --platform=node --bundle --minify --outfile=dist/index.js",
-    "preview": "node src/index.js NODE_ENV=production",
+    "preview": "npm run build && node dist/index.js NODE_ENV=production",
     "test": "jest",
     "lint": "concurrently -c 'yellow,green' \"npm:lint:js\" \"npm:lint:format\"",
     "lint:js": "npm run eslint -- . --ext .js,.jsx,.cjs,.mjs --fix",
