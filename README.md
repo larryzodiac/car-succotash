@@ -119,9 +119,15 @@ For this assessment, option 2.b was selected for the following reasons:
 - A service can be reused via terraform modules(w/Helm) & setup in multiple environments.
 - One endpoint for helper functions reduces requests(important for FE).
 
+### How might this work in production
+
+- A Helm chart could be created for this docker image to deploy `car-succotash` to Kubernetes.
+- A Terraform module would point to said Helm chart which may be used to install `car-succotash`.
+- The Terraform module could be shared and re-used between teams/products.
+
 See [GitHub Project](https://github.com/users/larryzodiac/projects/1) for broken down tasks.
 
-Implement the following:
+### Checklist
 
 - [x] Create a small library in NodeJS or Groovy.
 - [x] This library will contain API helper functionality that could be re-used and shared across multiple teams.
