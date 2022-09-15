@@ -34,7 +34,7 @@ Use `--build` to re-build images for a service.
 
 ## Usage
 
-Easiest method is to open a browser &amp; navigate to `http://localhost/api/v1` for Docker & http://localhost:8080/api/v1 for Node. 
+Easiest method is to open a browser &amp; navigate to http://localhost/api/v1 for Docker & http://localhost:8080/api/v1 for Node. 
 
 Play around with the following query params:
 
